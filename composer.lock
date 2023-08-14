@@ -1,0 +1,76 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "7acd0d7e6c6fc07b187a6681159c0bfc",
+    "packages": [
+        {
+            "name": "glowieframework/glowie-core",
+            "version": "v1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/glowieframework/glowie-core.git",
+                "reference": "6909635067c5ee73ef01eda4aa00b29a5787819e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/6909635067c5ee73ef01eda4aa00b29a5787819e",
+                "reference": "6909635067c5ee73ef01eda4aa00b29a5787819e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Utility/Babel.php",
+                    "src/Utility/Config.php",
+                    "src/Utility/Env.php",
+                    "src/Utility/Util.php"
+                ],
+                "psr-4": {
+                    "Glowie\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriel Silva",
+                    "email": "glowie@eugabrielsilva.tk",
+                    "homepage": "https://eugabrielsilva.tk/glowie"
+                }
+            ],
+            "description": "Glowie core modules and application bootstrapper",
+            "homepage": "https://eugabrielsilva.tk/glowie",
+            "keywords": [
+                "framework",
+                "glowie",
+                "mvc"
+            ],
+            "support": {
+                "issues": "https://github.com/glowieframework/glowie-core/issues",
+                "source": "https://github.com/glowieframework/glowie-core"
+            },
+            "time": "2023-05-26T02:00:28+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.4|^8.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

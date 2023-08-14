@@ -1,0 +1,93 @@
+<div class="container text-white" ng-init="listarPessoas()">
+    <h4>REST API - Pessoas</h4>
+    <a href="" class="btn btn-sm btn-success my-3" data-bs-toggle="modal" data-bs-target="#criar" ng-click="novaPessoa()">
+        <i class="fas fa-plus me-2"></i>
+        Cadastrar nova
+    </a>
+
+    <div class="alert alert-sm alert-warning mt-2 mb-0" ng-show="!pessoas.length">
+        Nenhuma pessoa cadastrada!
+    </div>
+
+    <table class="table table-dark table-striped table-hover" ng-show="pessoas.length">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Contatos</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pessoa in pessoas">
+                <td>
+                    <a class="text-white text-decoration-none" ng-href="visualizar/@{{ pessoa.id }}">
+                        @{{ pessoa.nome }}
+                    </a>
+                </td>
+                <td>
+                    <a class="text-white text-decoration-none" ng-href="visualizar/@{{ pessoa.id }}">
+                        @{{ pessoa.contatos.length }}
+                    </a>
+                </td>
+                <td>
+                    <a ng-href="visualizar/@{{ pessoa.id }}" class="btn btn-sm btn-secondary">
+                        <i class="fas fa-eye me-2"></i>
+                        Visualizar
+                    </a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#editar" ng-click="editarPessoa(pessoa)" class="btn btn-sm btn-primary ms-2">
+                        <i class="fas fa-edit me-2"></i>
+                        Editar
+                    </a>
+                    <a href="" ng-click="excluirPessoa(pessoa)" class="btn btn-sm btn-danger ms-2">
+                        <i class="fas fa-trash-alt me-2"></i>
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal Criar -->
+<div class="modal fade" tabindex="-1" id="criar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastrar Pessoa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="" class="form-label">Nome</label>
+                    <input id="criar_nome" type="text" ng-enter="criarPessoa()" placeholder="Nome" class="form-control" ng-model="pessoaCriar.nome">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="criarPessoa()" class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar -->
+<div class="modal fade" tabindex="-1" id="editar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Pessoa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="" class="form-label">Nome</label>
+                    <input id="editar_nome" type="text" ng-enter="salvarPessoa()" placeholder="Nome" class="form-control" ng-model="pessoaEditar.nome">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="salvarPessoa()" class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

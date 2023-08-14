@@ -1,0 +1,13 @@
+# --------------------------------
+# Application .htaccess
+# --------------------------------
+# This file is responsible for redirecting all URI requests to Glowie router.
+
+# ------------------------------------------------------------------------------
+# We do not recommend editing below this line unless you know what you're doing.
+# ------------------------------------------------------------------------------
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

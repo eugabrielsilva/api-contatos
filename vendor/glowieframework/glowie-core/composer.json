@@ -1,0 +1,40 @@
+{
+    "name": "glowieframework/glowie-core",
+    "description": "Glowie core modules and application bootstrapper",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "glowie",
+        "mvc"
+    ],
+    "homepage": "https://eugabrielsilva.tk/glowie",
+    "support": {
+        "issues": "https://github.com/glowieframework/glowie-core/issues",
+        "source": "https://github.com/glowieframework/glowie-core"
+    },
+    "authors": [
+        {
+            "name": "Gabriel Silva",
+            "email": "glowie@eugabrielsilva.tk",
+            "homepage": "https://eugabrielsilva.tk/glowie"
+        }
+    ],
+    "require": {
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-fileinfo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Glowie\\Core\\": "src/"
+        },
+        "files": [
+            "src/Utility/Babel.php",
+            "src/Utility/Config.php",
+            "src/Utility/Env.php",
+            "src/Utility/Util.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

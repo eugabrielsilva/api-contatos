@@ -1,0 +1,27 @@
+<?php
+    use Glowie\Core\CLI\Firefly;
+
+    /*
+        --------------------------------
+        Glowie Firefly
+        --------------------------------
+        This file is responsible for running Glowie command line tool.
+
+        ---------------------------------------------
+        We do not recommend editing below this line.
+        ---------------------------------------------
+    */
+
+    // Check Composer files
+    if(!file_exists('vendor/autoload.php')){
+        die('Composer packages were not found!' . PHP_EOL .
+        'Have you tried running composer install?');
+    }
+
+    // Load Composer packages
+    require('vendor/autoload.php');
+
+    // Run Firefly
+    Firefly::run();
+
+?>

@@ -1,0 +1,64 @@
+{
+    "packages": [
+        {
+            "name": "glowieframework/glowie-core",
+            "version": "v1.4.3",
+            "version_normalized": "1.4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/glowieframework/glowie-core.git",
+                "reference": "6909635067c5ee73ef01eda4aa00b29a5787819e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/6909635067c5ee73ef01eda4aa00b29a5787819e",
+                "reference": "6909635067c5ee73ef01eda4aa00b29a5787819e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*"
+            },
+            "time": "2023-05-26T02:00:28+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/Utility/Babel.php",
+                    "src/Utility/Config.php",
+                    "src/Utility/Env.php",
+                    "src/Utility/Util.php"
+                ],
+                "psr-4": {
+                    "Glowie\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriel Silva",
+                    "email": "glowie@eugabrielsilva.tk",
+                    "homepage": "https://eugabrielsilva.tk/glowie"
+                }
+            ],
+            "description": "Glowie core modules and application bootstrapper",
+            "homepage": "https://eugabrielsilva.tk/glowie",
+            "keywords": [
+                "framework",
+                "glowie",
+                "mvc"
+            ],
+            "support": {
+                "issues": "https://github.com/glowieframework/glowie-core/issues",
+                "source": "https://github.com/glowieframework/glowie-core"
+            },
+            "install-path": "../glowieframework/glowie-core"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

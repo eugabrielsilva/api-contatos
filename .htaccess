@@ -1,0 +1,14 @@
+# --------------------------------
+# Root .htaccess
+# --------------------------------
+# This file is responsible for redirecting everything from the root folder of your application to the app "public" folder.
+
+# ------------------------------------------------------------------------------
+# We do not recommend editing below this line unless you know what you're doing.
+# ------------------------------------------------------------------------------
+
+Options -Indexes -MultiViews
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteRule ^(.*)$ app/public/$1 [NC,L]

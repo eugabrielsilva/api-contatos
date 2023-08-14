@@ -1,0 +1,52 @@
+{
+    "name": "glowieframework/glowie-feather",
+    "description": "Clean starter kit for Glowie Framework",
+    "type": "project",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "glowie",
+        "mvc"
+    ],
+    "homepage": "https://glowie.tk",
+    "support": {
+        "issues": "https://github.com/glowieframework/glowie-feather/issues",
+        "source": "https://github.com/glowieframework/glowie-feather"
+    },
+    "authors": [
+        {
+            "name": "Gabriel Silva",
+            "email": "dev@glowie.tk",
+            "homepage": "https://glowie.tk"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "glowieframework/glowie-core": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Glowie\\Commands\\": "app/commands/",
+            "Glowie\\Controllers\\": "app/controllers/",
+            "Glowie\\Middlewares\\": "app/middlewares/",
+            "Glowie\\Migrations\\": "app/migrations/",
+            "Glowie\\Models\\": "app/models/",
+            "Glowie\\Helpers\\": "app/views/helpers/"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php firefly init"
+        ],
+        "post-autoload-dump": [
+            "@php firefly publish"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
