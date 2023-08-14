@@ -5,11 +5,15 @@
         Cadastrar nova
     </a>
 
-    <div class="alert alert-sm alert-warning mt-2 mb-0" ng-show="!pessoas.length">
+    <div class="alert alert-sm alert-secondary mt-2 mb-0" ng-show="loading">
+        <i class="fas fa-spinner fa-spin me-2"></i> Carregando informações...
+    </div>
+
+    <div class="alert alert-sm alert-warning mt-2 mb-0" ng-show="!loading && !pessoas.length">
         Nenhuma pessoa cadastrada!
     </div>
 
-    <table class="table table-dark table-striped table-hover" ng-show="pessoas.length">
+    <table class="table table-dark table-striped table-hover" ng-show="!loading && pessoas.length">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -38,7 +42,7 @@
                         <i class="fas fa-edit me-2"></i>
                         Editar
                     </a>
-                    <a href="" ng-click="excluirPessoa(pessoa)" class="btn btn-sm btn-danger ms-2">
+                    <a ng-disabled="loading" href="" ng-click="excluirPessoa(pessoa)" class="btn btn-sm btn-danger ms-2">
                         <i class="fas fa-trash-alt me-2"></i>
                         Excluir
                     </a>
@@ -63,7 +67,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" ng-click="criarPessoa()" class="btn btn-success">Salvar</button>
+                <button ng-disabled="loading" type="button" ng-click="criarPessoa()" class="btn btn-success"><i class="fas fa-spinner fa-spin me-2" ng-show="loading"></i> Salvar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             </div>
         </div>
@@ -85,7 +89,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" ng-click="salvarPessoa()" class="btn btn-success">Salvar</button>
+                <button ng-disabled="loading" type="button" ng-click="salvarPessoa()" class="btn btn-success"><i class="fas fa-spinner fa-spin me-2" ng-show="loading"></i> Salvar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             </div>
         </div>

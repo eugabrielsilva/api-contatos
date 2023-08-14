@@ -19,11 +19,15 @@ app.directive('ngEnter', function() {
 
 app.controller('controller', function($scope, $http, $httpParamSerializer) {
 
+    $scope.loading = true;
+
     // Lista todas as pessoas do BD
     $scope.listarPessoas = function() {
         $http.get('pessoas').then(result => {
             $scope.pessoas = result.data.dados;
+            $scope.loading = false;
         }).catch(() => {
+            $scope.loading = false;
             Swal.fire(
                 'Oops!',
                 'Ocorreu um erro ao obter as informações!',
@@ -51,7 +55,10 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
             return;
         }
 
+        $scope.loading = true;
+
         $http.post('pessoas', $httpParamSerializer($scope.pessoaCriar)).then(result => {
+            $scope.loading = false;
             if(result.data.status) {
                 Swal.fire(
                     'Sucesso!',
@@ -70,6 +77,7 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
                 );
             }
         }).catch(() => {
+            $scope.loading = false;
             Swal.fire(
                 'Oops!',
                 'Ocorreu um erro ao salvar!',
@@ -97,7 +105,10 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
             return;
         }
 
+        $scope.loading = true;
+
         $http.put('pessoas/' + $scope.pessoaEditar.id, $httpParamSerializer($scope.pessoaEditar)).then(result => {
+            $scope.loading = false;
             if(result.data.status) {
                 Swal.fire(
                     'Sucesso!',
@@ -116,6 +127,7 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
                 );
             }
         }).catch(() => {
+            $scope.loading = false;
             Swal.fire(
                 'Oops!',
                 'Ocorreu um erro ao salvar!',
@@ -137,7 +149,9 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
             cancelButtonColor: '#d33',
         }).then((answer) => {
             if(answer.isConfirmed) {
+                $scope.loading = true;
                 $http.delete('pessoas/' + pessoa.id).then(result => {
+                    $scope.loading = false;
                     if(result.data.status) {
                         Swal.fire(
                             'Sucesso!',
@@ -154,6 +168,7 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
                         );
                     }
                 }).catch(() => {
+                    $scope.loading = false;
                     Swal.fire(
                         'Oops!',
                         'Ocorreu um erro ao excluir!',
@@ -166,9 +181,12 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
 
     // Carrega os contatos de uma pessoa
     $scope.carregarPessoa = function(id) {
+        $scope.loading = true;
         $http.get('../pessoas/' + id).then(result => {
             $scope.pessoa = result.data.dados;
+            $scope.loading = false;
         }).catch(() => {
+            $scope.loading = false;
             Swal.fire(
                 'Oops!',
                 'Ocorreu um erro ao obter as informações!',
@@ -205,7 +223,10 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
             return;
         }
 
+        $scope.loading = true;
+
         $http.post('../contatos/' + $scope.pessoa.id, $httpParamSerializer($scope.contatoCriar)).then(result => {
+            $scope.loading = false;
             if(result.data.status) {
                 Swal.fire(
                     'Sucesso!',
@@ -224,6 +245,7 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
                 );
             }
         }).catch(() => {
+            $scope.loading = false;
             Swal.fire(
                 'Oops!',
                 'Ocorreu um erro ao salvar!',
@@ -260,7 +282,10 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
             return;
         }
 
+        $scope.loading = true;
+
         $http.put('../contatos/' + $scope.contatoEditar.id, $httpParamSerializer($scope.contatoEditar)).then(result => {
+            $scope.loading = false;
             if(result.data.status) {
                 Swal.fire(
                     'Sucesso!',
@@ -279,6 +304,7 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
                 );
             }
         }).catch(() => {
+            $scope.loading = false;
             Swal.fire(
                 'Oops!',
                 'Ocorreu um erro ao salvar!',
@@ -300,7 +326,9 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
             cancelButtonColor: '#d33',
         }).then((answer) => {
             if(answer.isConfirmed) {
+                $scope.loading = true;
                 $http.delete('../contatos/' + contato.id).then(result => {
+                    $scope.loading = false;
                     if(result.data.status) {
                         Swal.fire(
                             'Sucesso!',
@@ -317,6 +345,7 @@ app.controller('controller', function($scope, $http, $httpParamSerializer) {
                         );
                     }
                 }).catch(() => {
+                    $scope.loading = false;
                     Swal.fire(
                         'Oops!',
                         'Ocorreu um erro ao excluir!',
